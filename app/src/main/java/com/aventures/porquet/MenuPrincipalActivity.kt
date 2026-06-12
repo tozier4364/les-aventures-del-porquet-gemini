@@ -36,36 +36,37 @@ class MenuPrincipalActivity : AppCompatActivity() {
         }
 
         // 4. Configurar clics con animación pop
-        btnAprender.setOnClickListener { ejecutarAccionConAnimacion(it) { irASeccionAprender() } }
-        btnJugar.setOnClickListener { ejecutarAccionConAnimacion(it) { irASeccionJugar() } }
+        btnAprender.setOnClickListener { 
+            ejecutarAccionConAnimacion(it) { irASeccionAprender() } 
+        }
+        btnJugar.setOnClickListener { 
+            ejecutarAccionConAnimacion(it) { irASeccionJugar() } 
+        }
     }
 
     private fun ejecutarAccionConAnimacion(vista: View, accion: () -> Unit) {
+        // Corregido: Se ejecuta la animación de forma limpia y directa
         vista.animate()
             .scaleX(1.1f)
             .scaleY(1.1f)
             .setDuration(100)
             .setInterpolator(OvershootInterpolator())
             .withEndAction {
-                vista.animate().scaleX(1f).scaleY(1f).setDuration(100).start()
-                accion()
+                vista.animate()
+                    .scaleX(1f)
+                    .scaleY(1f)
+                    .setDuration(100)
+                    .withEndAction { accion() }
+                    .start()
             }
             .start()
     }
 
     private fun irASeccionAprender() {
-        /* 
-           RECORDATORIO ESTRATÉGICO: 
-           Esta sección cargará el Mapa de Geografía.
-           Eje central: Barcelona Capital.
-           Rutas salientes hacia: Parets del Vallès, Valls y Claravalls.
-        */
         Toast.makeText(this, "Carregant Mapa de Catalunya...", Toast.LENGTH_SHORT).show()
-        // Aquí lanzarás el Intent para la MapaActivity
     }
 
     private fun irASeccionJugar() {
         Toast.makeText(this, "Secció de Jocs aviat!", Toast.LENGTH_SHORT).show()
-        // Aquí lanzarás el Intent para la JuegosActivity
     }
 }
