@@ -1,1 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAF9F6"
+    android:padding="24dp">
 
+    <!-- Título Dinámico -->
+    <TextView
+        android:id="@+id/tvMenuTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textAlignment="center"
+        android:textColor="#5D4037"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Què vols fer?" />
+
+    <!-- Porquet Pensando -->
+    <ImageView
+        android:id="@+id/ivPorquetPensant"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="32dp"
+        android:contentDescription="Porquet pensant"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toTopOf="@+id/btnAprender"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMenuTitle"
+        app:srcCompat="@drawable/porquet_pensando" />
+
+    <!-- Botón Aprender (Sección Geografía) -->
+    <Button
+        android:id="@+id/btnAprender"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#FFEB3B"
+        android:elevation="6dp"
+        android:text="Aprèn"
+        android:textAllCaps="false"
+        android:textColor="#5D4037"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:stateListAnimator="@null"
+        app:cornerRadius="45dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnJugar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Botón Jugar -->
+    <Button
+        android:id="@+id/btnJugar"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="#81C784"
+        android:elevation="6dp"
+        android:text="Juga"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:stateListAnimator="@null"
+        app:cornerRadius="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
